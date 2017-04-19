@@ -20,7 +20,11 @@
         <td>{{p.name}}</td>
         <td>{{p.firstName}}</td>
         <td>{{p.bonusMiles}}</td>
-        <td>{{p.passengerStatus}}</td>
+        <td>
+        <span [ngStyle]="{color: p.passengerStatus | statusColor}">
+            {{p.passengerStatus | statusPipe: 'long'}}
+        </span>
+        </td>
         <td><a (click)="select(p)">Select</a></td>
     </tr>
 </table>
