@@ -1,10 +1,13 @@
+import { PassengerService } from './passenger.service';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Passenger } from './../../entities/passengers';
 import { Component, OnInit } from '@angular/core';
+import { AbstractPassengerService } from "./abstract-passenger-service";
 
 @Component({
   selector: 'passenger-search',
-  templateUrl: './passenger-search.component.html'  
+  templateUrl: './passenger-search.component.html', 
+  providers: [{provide:AbstractPassengerService, useClass: PassengerService}] 
 })
 export class PassengerSearchComponent implements OnInit {
   
@@ -14,7 +17,7 @@ export class PassengerSearchComponent implements OnInit {
   firstName: string;
   selectedPassenger: Passenger;
 
-constructor(private http: Http){}
+constructor(private passengerService: AbstractPassengerService, private http: Http){}
 
   ngOnInit() { 
         console.debug('Komponente ist jetzt da!');
@@ -23,18 +26,8 @@ constructor(private http: Http){}
   
   search(): void {
     
-    let url ="http://www.angular.at/api/passenger";
-    let headers= new Headers();
-    headers.set('Accept', 'application/json');
-
-    let search = new URLSearchParams();
-    search.set('name', this.name);
-    search.set('firstName', this.firstName);
-
-    this
-    .http
-    .get(url, {search, headers})
-    .map(resp => resp.json())
+   this.passengerService
+   .find(this.name, this.firstName)
     .subscribe(
       passengers => {
         this.passengers = passengers;

@@ -1,3 +1,4 @@
+import { PassengerService } from './passengersearch/passenger.service';
 import { PassengerSearchComponent } from './passengersearch/passenger-search.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PassengerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
