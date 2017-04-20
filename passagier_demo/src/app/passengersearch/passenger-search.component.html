@@ -14,14 +14,8 @@
             maxlength="30"
             nameVal>
     </div>
-    <div *ngIf="!f?.controls['name']?.valid">
-        Fehler ...
-        <pre>{{ f?.controls['name']?.errors | json }}</pre>
-    </div>
-    <div *ngIf="f?.controls['name']?.hasError('required')">
-        Required!
-    </div>
-
+    
+    <passenger-validation-errors [errors]="f?.controls?.name?.errors"></passenger-validation-errors>
 
     <div class="control-group">
         <button class="btn btn-default" (click)="search()">Suchen</button>

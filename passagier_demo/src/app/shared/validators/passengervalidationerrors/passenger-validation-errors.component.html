@@ -1,0 +1,8 @@
+<div *ngIf="errors && errors.required">
+    This field is required    
+</div>
+<pre>{{errors | json}}</pre>
+
+<div *ngIf="errors && errors.nameVal">
+    You messed up the lastname. Use only Letters.
+</div>
