@@ -24,18 +24,28 @@ constructor(private passengerService: AbstractPassengerService, private http: Ht
     }
  
   
-  search(): void {
+  search(): Promise<Passenger[]> {
+
+    if(!this.name || this.firstName){
+      return Promise.reject('name and firstName expected');
+    }
+
+    return new Promise<Passenger[]>((resolve: Function, reject: Function) =>{
+      this.passengerService
+        .find(this.name, this.firstName)
+          .subscribe(
+            passengers => {
+              this.passengers = passengers;
+              resolve(passengers);
+            },
+            err => {
+              console.error('Fehler oider!! Bissd deppert?', err);
+              reject(err);
+            }
+          )
+    });
     
-   this.passengerService
-   .find(this.name, this.firstName)
-    .subscribe(
-      passengers => {
-        this.passengers = passengers;
-      },
-      err => {
-        console.error('Fehler oider!! Bissd deppert?', err);
-      }
-    )
+   
   }
 
   select(p: Passenger): void {
