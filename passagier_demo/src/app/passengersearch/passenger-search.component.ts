@@ -17,6 +17,8 @@ export class PassengerSearchComponent implements OnInit {
   firstName: string;
   selectedPassenger: Passenger;
 
+  basket: any = {};
+
 constructor(private passengerService: AbstractPassengerService, private http: Http){}
 
   ngOnInit() { 
@@ -25,10 +27,6 @@ constructor(private passengerService: AbstractPassengerService, private http: Ht
  
   
   search(): Promise<Passenger[]> {
-
-    if(!this.name || this.firstName){
-      return Promise.reject('name and firstName expected');
-    }
 
     return new Promise<Passenger[]>((resolve: Function, reject: Function) =>{
       this.passengerService

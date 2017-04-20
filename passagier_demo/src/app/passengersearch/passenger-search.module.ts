@@ -1,3 +1,4 @@
+import { PassengerCardComponent } from './../passengercard/passenger-card.component';
 import { CommonModule } from '@angular/common/';
 import { PassengerService } from './passenger.service';
 import { SharedModule } from './../shared/shared.module';
@@ -13,7 +14,7 @@ import { NgModule } from '@angular/core';
         SharedModule,
         CommonModule
     ],    
-    declarations: [PassengerSearchComponent],
+    declarations: [PassengerSearchComponent, PassengerCardComponent],
     providers: [PassengerService],
     exports: [PassengerSearchComponent],
 })

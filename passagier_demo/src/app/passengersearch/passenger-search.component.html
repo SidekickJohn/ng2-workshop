@@ -13,7 +13,16 @@
     <button class="btn btn-default" (click)="createNewPass()">Neuen Passagier erzeugen</button>
 </div>
 
-
+<div class="row">
+    <div *ngFor="let p of passengers" style="margin-bottom:20px;" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <passenger-card 
+            [item]="p" 
+            [(selected)]="basket[p.id]">
+            <!--<pre>{{ p | json }}</pre>-->
+        </passenger-card>
+    </div>
+</div>
+<!--
 <table class="table table-striped" *ngIf="!selectedPassenger">
     <tr *ngFor="let p of passengers">
         <td>{{p.id}}</td>
@@ -45,9 +54,9 @@
         <button class="btn btn-defaul" (click)="addNewPassenger(selectedPassenger)" [disabled]="selectedPassenger.id <= 5 && selectedPassenger.id != 0">Neuen Anlegen</button>
     </div>
 </div>
+-->
 
-
-<pre>Passagier
+<pre>Gewählte Passagiere
 -------------------
-{{ selectedPassenger | json }}    
+{{ basket | json }}    
 </pre>   

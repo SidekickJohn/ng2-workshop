@@ -7,7 +7,7 @@
     "start": "ng serve --port=8081",
     "build": "ng build",
     "test-coverage": "ng test --code-coverage --reporters=coverage-istanbul",
-    "test": "ng test --code-coverage",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "tsc": "tsc"

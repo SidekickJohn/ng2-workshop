@@ -1,0 +1,15 @@
+<div style="padding:20px;"
+     [ngStyle]="{'background-color': (selected) ?  'orange' : 'lightsteelblue' }">
+
+    <h2>{{item.name}} - {{item.firstName}}</h2>
+    <p>Passagiernr. #{{item.id}}</p>
+    <p>Bonusmeilen: {{item.bonusMiles}}</p>    
+    <p [ngStyle]="{color: item.passengerStatus | statusColor}">
+           Passagier-Status: {{item.passengerStatus | statusPipe: 'long'}}
+    </p>
+    <ng-content></ng-content>
+    <p>
+       <button *ngIf="!selected" class="btn btn-default" (click)="select()">Auswählen</button>
+       <button *ngIf="selected" class="btn btn-default" (click)="deselect()">Entfernen</button>   
+    </p>
+</div>
