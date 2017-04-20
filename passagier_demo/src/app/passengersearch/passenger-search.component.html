@@ -1,18 +1,33 @@
-<div class="control-group">
-    <label>Vorname:</label>
-    <input [(ngModel)]="firstName" class="form-control">
-</div>
+<form #f="ngForm">
+    <div class="control-group">
+        <label>Vorname:</label>
+        <input name="firstName" [(ngModel)]="firstName" class="form-control">
+    </div>
 
-<div class="control-group">
-    <label>Nachname:</label>
-    <input [(ngModel)]="name" class="form-control">
-</div>
+    <div class="control-group">
+        <label>Nachname:</label>
+        <input
+            name="name" 
+            [(ngModel)]="name" 
+            class="form-control"
+            required
+            maxlength="30"
+            nameVal>
+    </div>
+    <div *ngIf="!f?.controls['name']?.valid">
+        Fehler ...
+        <pre>{{ f?.controls['name']?.errors | json }}</pre>
+    </div>
+    <div *ngIf="f?.controls['name']?.hasError('required')">
+        Required!
+    </div>
 
-<div class="control-group">
-    <button class="btn btn-default" (click)="search()">Suchen</button>
-    <button class="btn btn-default" (click)="createNewPass()">Neuen Passagier erzeugen</button>
-</div>
 
+    <div class="control-group">
+        <button class="btn btn-default" (click)="search()">Suchen</button>
+        <button class="btn btn-default" (click)="createNewPass()">Neuen Passagier erzeugen</button>
+    </div>
+</form>
 <div class="row">
     <div *ngFor="let p of passengers" style="margin-bottom:20px;" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <passenger-card 

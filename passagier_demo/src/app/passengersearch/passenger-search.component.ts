@@ -6,7 +6,8 @@ import { AbstractPassengerService } from "./abstract-passenger-service";
 
 @Component({
   selector: 'passenger-search',
-  templateUrl: './passenger-search.component.html', 
+  templateUrl: './passenger-search.component.html',
+  styleUrls: ['./passenger-search.component.css'], 
   providers: [{provide:AbstractPassengerService, useClass: PassengerService}] 
 })
 export class PassengerSearchComponent implements OnInit {
