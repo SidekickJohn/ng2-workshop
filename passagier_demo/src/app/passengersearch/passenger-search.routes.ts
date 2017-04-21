@@ -1,3 +1,4 @@
+import { PassengerEditGuard } from './../passenger-edit/passenger-edit-guard';
 import { PassengerEditComponent } from './../passenger-edit/passenger-edit.component';
 import { PassengerLookaheadComponent } from './../passenger-lookahead/passenger-lookahead.component';
 import { ReactivePassengerSearchComponent } from './../reactive-passengersearch/reactive-passenger-search.component';
@@ -19,7 +20,8 @@ const PASSENGER_SEARCH_ROUTES: Routes = [
     },
     {
         path: 'passenger-edit/:id',
-        component: PassengerEditComponent
+        component: PassengerEditComponent,
+        canDeactivate: [PassengerEditGuard]
     }
 
 ];

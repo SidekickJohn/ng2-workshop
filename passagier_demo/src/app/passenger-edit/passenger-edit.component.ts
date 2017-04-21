@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable, Observer } from 'rxjs';
 import { Http, Headers, URLSearchParams } from '@angular/http';
 import { Passenger } from './../../entities/passengers';
 import { Component, OnInit } from '@angular/core';
@@ -74,5 +74,25 @@ export class PassengerEditComponent implements OnInit {
         this.router.navigate(['../passenger-search']);
     }
 
+// For Guards
+
+    exitWarning = {
+        observer: null,
+        show: false
+    }
+
+    decide(d: boolean) {
+        this.exitWarning.show =false;
+        this.exitWarning.observer.next(d);
+        this.exitWarning.observer.complete();
+    }
+
+    canDeactivate(){
+        this.exitWarning.show = true;
+        return new Observable<boolean>((sender: Observer<boolean>) => {
+            this.exitWarning.observer = sender;
+            
+        });
+    }
     
 }

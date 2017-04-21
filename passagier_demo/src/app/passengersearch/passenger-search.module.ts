@@ -1,3 +1,4 @@
+import { PassengerEditGuard } from './../passenger-edit/passenger-edit-guard';
 import { PassengerEditComponent } from './../passenger-edit/passenger-edit.component';
 import { PassengerSearchRouterModule } from './passenger-search.routes';
 import { PassengerLookaheadComponent } from './../passenger-lookahead/passenger-lookahead.component';
@@ -26,7 +27,7 @@ import { NgModule } from '@angular/core';
         ReactivePassengerSearchComponent, 
         PassengerLookaheadComponent,
         PassengerEditComponent],
-    providers: [PassengerService],
+    providers: [PassengerService, PassengerEditGuard],
     exports: [
         PassengerSearchComponent, 
         ReactivePassengerSearchComponent, 
