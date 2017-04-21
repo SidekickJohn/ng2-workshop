@@ -1,3 +1,4 @@
+import { PassengerLookaheadComponent } from './../passenger-lookahead/passenger-lookahead.component';
 import { ReactivePassengerSearchComponent } from './../reactive-passengersearch/reactive-passenger-search.component';
 import { PassengerCardComponent } from './../passengercard/passenger-card.component';
 import { CommonModule } from '@angular/common/';
@@ -16,8 +17,8 @@ import { NgModule } from '@angular/core';
         SharedModule,
         CommonModule
     ],    
-    declarations: [PassengerSearchComponent, PassengerCardComponent, ReactivePassengerSearchComponent],
+    declarations: [PassengerSearchComponent, PassengerCardComponent, ReactivePassengerSearchComponent, PassengerLookaheadComponent],
     providers: [PassengerService],
-    exports: [PassengerSearchComponent, ReactivePassengerSearchComponent],
+    exports: [PassengerSearchComponent, ReactivePassengerSearchComponent, PassengerLookaheadComponent],
 })
 export class PassengerSearchModule { }

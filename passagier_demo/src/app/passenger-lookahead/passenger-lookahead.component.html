@@ -1,0 +1,16 @@
+<h1>Passenger Lookahead</h1>
+
+<div class="control-group">
+    <input [formControl]="control" class="form-control">
+</div>
+
+<div *ngIf="loading">Loading ...</div>    
+
+<table class="table table-striped">
+    <tr *ngFor="let p of passengers$ | async">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.firstName}}</td>
+        <td>{{p.bonusMiles}}</td>
+    </tr>
+</table>    
