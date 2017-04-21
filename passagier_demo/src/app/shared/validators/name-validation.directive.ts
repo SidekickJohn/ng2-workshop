@@ -1,3 +1,4 @@
+import { NameValidator } from './name.validator';
 import { Directive, Input } from '@angular/core';
 import { NG_VALIDATORS, AbstractControl } from "@angular/forms";
 
@@ -11,21 +12,6 @@ export class NameValidationDirective {
     constructor() { }
 
     validate(c: AbstractControl): any {
-        let allowed = "A-Z,a-z,öäüßÖÄÜ";
-        var str = c.value;
-        if(!str) return {};
-
-        var ok = str.match(/^[a-zA-Z\-]*$/);
-
-        if(!ok){
-            return {
-                nameVal: {
-                    actual: c.value,
-                    reason: 1,
-                    possible: allowed
-                }
-            }
-        }
-        return {};
+        return NameValidator.validate(c);
     }
 }

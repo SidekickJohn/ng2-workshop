@@ -1,0 +1,38 @@
+<h1>Reactive Flight Search</h1>
+<form [formGroup]="filter">
+    <div class="control-group">
+        <label>Vorname:</label>
+        <input 
+            name="firstName" 
+            formControlName="firstName"
+            class="form-control">
+    </div>
+
+    <div class="control-group">
+        <label>Nachname:</label>
+        <input
+            name="name" 
+            formControlName="name"
+            class="form-control">            
+    </div>
+    
+    <passenger-validation-errors [errors]="filter.controls.name.errors"></passenger-validation-errors>
+
+    <div class="control-group">
+        <button class="btn btn-default" (click)="search()">Suchen</button>
+        <button class="btn btn-default" (click)="createNewPass()">Neuen Passagier erzeugen</button>
+    </div>
+</form>
+<div class="row">
+    <div *ngFor="let p of passengers" style="margin-bottom:20px;" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <passenger-card 
+            [item]="p" 
+            [(selected)]="basket[p.id]">            
+        </passenger-card>
+    </div>
+</div>
+
+<pre>Gewählte Passagiere
+-------------------
+{{ basket | json }}    
+</pre>   
