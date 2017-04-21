@@ -1,0 +1,22 @@
+<h1>Passenger Edit</h1>
+<p>
+    Id: {{id}}
+</p>
+<p>
+    ShowDetails: {{showDetails}}
+</p>
+
+<div class="control-group" *ngIf="selectedPassenger">
+    <label>Name:</label>
+    <input [(ngModel)]="selectedPassenger.name" class="form-control">
+    <label>firstName:</label>
+    <input [(ngModel)]="selectedPassenger.firstName" class="form-control">
+    <label>bonusMiles:</label>
+    <input [(ngModel)]="selectedPassenger.bonusMiles" class="form-control">
+    <label>passengerStatus:</label>
+    <input [(ngModel)]="selectedPassenger.passengerStatus" class="form-control">
+    <br>   
+    <button class="btn btn-default" [disabled]="selectedPassenger.id <= 5  && selectedPassenger.id != 0" (click)="savePassenger(selectedPassenger)">Speichern</button>    
+    <a class="btn btn-default" [routerLink]="['/passenger-search']">Abbrechen</a>
+</div>
+

@@ -1,3 +1,5 @@
+import { PassengerEditComponent } from './../passenger-edit/passenger-edit.component';
+import { PassengerSearchRouterModule } from './passenger-search.routes';
 import { PassengerLookaheadComponent } from './../passenger-lookahead/passenger-lookahead.component';
 import { ReactivePassengerSearchComponent } from './../reactive-passengersearch/reactive-passenger-search.component';
 import { PassengerCardComponent } from './../passengercard/passenger-card.component';
@@ -15,10 +17,20 @@ import { NgModule } from '@angular/core';
         ReactiveFormsModule,
         HttpModule,
         SharedModule,
-        CommonModule
+        CommonModule,
+        PassengerSearchRouterModule
     ],    
-    declarations: [PassengerSearchComponent, PassengerCardComponent, ReactivePassengerSearchComponent, PassengerLookaheadComponent],
+    declarations: [
+        PassengerSearchComponent, 
+        PassengerCardComponent, 
+        ReactivePassengerSearchComponent, 
+        PassengerLookaheadComponent,
+        PassengerEditComponent],
     providers: [PassengerService],
-    exports: [PassengerSearchComponent, ReactivePassengerSearchComponent, PassengerLookaheadComponent],
+    exports: [
+        PassengerSearchComponent, 
+        ReactivePassengerSearchComponent, 
+        PassengerLookaheadComponent,
+        PassengerEditComponent],
 })
 export class PassengerSearchModule { }

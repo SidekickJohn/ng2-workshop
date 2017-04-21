@@ -19,7 +19,7 @@
 
     <div class="control-group">
         <button class="btn btn-default" (click)="search()">Suchen</button>
-        <button class="btn btn-default" (click)="createNewPass()">Neuen Passagier erzeugen</button>
+        <a class="btn btn-default" [routerLink]="['../passenger-edit', 0, {showDetails: true}]">Neuen Passagier hinzufügen</a>
     </div>
 </form>
 <div class="row">

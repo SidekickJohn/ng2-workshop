@@ -1,3 +1,5 @@
+import { HomeComponent } from './home/home.component';
+import { AppRouterModule } from './app.routes';
 import { PassengerSearchModule } from './passengersearch/passenger-search.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,12 +9,14 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent      
+    AppComponent,
+    HomeComponent      
   ],
   imports: [
     BrowserModule,    
     HttpModule,
-    PassengerSearchModule    
+    PassengerSearchModule,
+    AppRouterModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

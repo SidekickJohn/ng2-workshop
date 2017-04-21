@@ -11,5 +11,7 @@
     <p>
        <button *ngIf="!selected" class="btn btn-default" (click)="select()">Auswählen</button>
        <button *ngIf="selected" class="btn btn-default" (click)="deselect()">Entfernen</button>   
+       <a class="btn btn-default" [routerLink]="['../passenger-edit', item.id, {showDetails: true}]">Edit</a>                 
+       <button class="btn btn-default" (click)="openPassenger(item.id)">Edit Functionally Bro!</button>   
     </p>
 </div>

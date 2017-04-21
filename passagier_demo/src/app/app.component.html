@@ -1,15 +1,13 @@
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a [routerLink]="['/home']">Home</a></li> 
+        <li><a [routerLink]="['/passenger-search']">Passenger Search</a></li> 
+        <li><a [routerLink]="['/reactive-passenger-search']">Reactive Passenger Search</a></li> 
+        <li><a [routerLink]="['/passenger-lookahead']">Lookahead</a></li>    
+        <li><a [routerLink]="['../passenger-edit', 0, {showDetails: true}]">Add new Passenger</a></li>                                   
+    </ul>
+</nav>
+
 <div class="container">
-  <h1>
-    {{title}}
-  </h1>
-  <passenger-lookahead></passenger-lookahead>
-
-  <!--
-  <passenger-search></passenger-search>
-  <br/>
-  ---------------------------
-  <br/>
-  <reactive-passenger-search></reactive-passenger-search>
-
-  -->
+  <router-outlet></router-outlet>
 </div>
